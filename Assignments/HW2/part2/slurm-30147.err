@@ -1,0 +1,1 @@
+/var/spool/slurmd/job30147/slurm_script: line 15: 1054697 Segmentation fault      ./mandelbrot
