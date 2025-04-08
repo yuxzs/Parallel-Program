@@ -192,13 +192,14 @@ async def async_main(urls):
     #     print(f"{word}: {freq}")
 
 if __name__ == "__main__":
-    # jieba.initialize()
+    jieba.initialize()
     jieba.setLogLevel(jieba.logging.WARN)
     urls = list()
     with open(args.input_list, 'r', encoding='utf-8') as f:
         for row in f.readlines():
             urls.append(row.replace('\n',''))
     
+    print(f'urls 數量: {len(urls)}\nCPU threads: {cpu_count()}')
     total_Sequential, total_Threading, total_multiprocessing = main(urls)
     total_asyncio = asyncio.run(async_main(urls))
 
