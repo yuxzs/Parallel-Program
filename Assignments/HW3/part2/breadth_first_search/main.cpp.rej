@@ -1,0 +1,26 @@
+--- part2/breadth_first_search/main.cpp
++++ part2/breadth_first_search/main.cpp
+@@ -211,9 +211,9 @@ int main(int argc, char **argv)
+                     ref_top_time / top_time, ref_bottom_time / bottom_time,
+                     ref_hybrid_time / hybrid_time);
+ 
+-            timing.write(buf.data(), buf.size());
+-            ref_timing.write(ref_buf.data(), ref_buf.size());
+-            relative_timing.write(relative_buf.data(), relative_buf.size());
++            timing << buf.data();
++            ref_timing << ref_buf.data();
++            relative_timing << relative_buf.data() ;
+         }
+ 
+         delete[] top_sol.distances;
+@@ -336,8 +336,8 @@ int main(int argc, char **argv)
+         sprintf(ref_buf.data(), "%4d:     %8.2f     %8.2f     %8.2f\n", thread_count, ref_top_time,
+                 ref_bottom_time, ref_hybrid_time);
+ 
+-        timing.write(buf.data(), buf.size());
+-        ref_timing.write(ref_buf.data(), ref_buf.size());
++        timing << buf.data();
++        ref_timing << ref_buf.data();
+ 
+         delete[] top_sol.distances;
+         delete[] bottom_sol.distances;
